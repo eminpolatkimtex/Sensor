@@ -12,11 +12,11 @@ public class SensorController {
         this.fetchService = fetchService;
     }
 
-    // URL ekle → /api/sensor/setUrl?id=1&url=https://...
-    @GetMapping("/setUrl")
-    public String setUrl(@RequestParam int id, @RequestParam String url) {
-        fetchService.setUrl(id, url);
-        return "URL " + id + " için ayarlandı: " + url;
+    // Cihaz ekle → /api/sensor/setDevice?id=1&deviceName=eva2025
+    @GetMapping("/setDevice")
+    public String setDevice(@RequestParam int id, @RequestParam String deviceName) {
+        fetchService.setDevice(id, deviceName);
+        return "Cihaz " + id + " için ayarlandı: " + deviceName;
     }
 
     // Veri oku → /api/sensor/getAll/1
