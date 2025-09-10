@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FetchScheduler {
-    private FetchService fetchService;
+    private final FetchService fetchService;
 
     public FetchScheduler(FetchService fetchService) {
         this.fetchService = fetchService;
     }
 
-    @Scheduled(fixedRate = 30000) // dakikada 2 defa
+    @Scheduled(fixedRate = 30000) // her 30 saniyede bir
     public void fetchDataPeriodically() {
-        fetchService.fetchAndSave();
+        fetchService.fetchAll(); // bütün URL’lerden veri çek
     }
 }
